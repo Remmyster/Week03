@@ -1,3 +1,46 @@
-<Solution>
-  <Project Path="Week03/Week03.csproj" />
-</Solution>
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        while (true)
+        {
+            string input = Console.ReadLine();
+
+            if (input.ToLower() == "exit")
+                break;
+
+            string[] parts = input.Split(' ');
+
+            if (parts.Length != 3)
+                continue;
+
+            int num1 = int.Parse(parts[0]);
+            string op = parts[1];
+            int num2 = int.Parse(parts[2]);
+
+            if (op == "/" && num2 == 0)
+            {
+                Console.WriteLine("Cannot divide by zero");
+                continue;
+            }
+
+            switch (op)
+            {
+                case "+":
+                    Console.WriteLine(num1 + num2);
+                    break;
+                case "-":
+                    Console.WriteLine(num1 - num2);
+                    break;
+                case "*":
+                    Console.WriteLine(num1 * num2);
+                    break;
+                case "/":
+                    Console.WriteLine(num1 / num2); // integer division
+                    break;
+            }
+        }
+    }
+}
